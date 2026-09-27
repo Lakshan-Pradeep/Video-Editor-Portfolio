@@ -22,7 +22,11 @@
   <header class="nav">
     <a class="brand" href="#home">LAKSHAN<span>.</span></a>
     <nav aria-label="Primary navigation">
-      <a href="#home">Home</a><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
     <a class="pill" data-wa>Hire Me <span>↗</span></a>
     <button class="menu" aria-label="Open menu">☰</button>
@@ -33,14 +37,29 @@
       <div class="heroCopy reveal">
         <div class="status"><i></i> AVAILABLE FOR PROJECTS</div>
         <p class="eyebrow">VIDEO EDITOR · SRI LANKA · WORLDWIDE</p>
-        <h1>I make videos<br><span>worth watching.</span></h1>
+        <h1 class="heroTitle" aria-label="I make videos worth watching.">
+          <span class="typingLine" data-typing="I make videos"></span><br>
+          <span class="typingLine accent" data-typing="worth watching."></span>
+        </h1>
         <p class="lead">I turn raw footage into clean, engaging and cinematic content for YouTube, Reels, Shorts, brands and social media.</p>
-        <div class="actions"><a class="btn primary" href="#work">View My Work <span>↗</span></a><a class="btn ghost" data-wa>Let's Work Together</a></div>
-        <div class="miniStats"><div><b>01</b><small>Story & Pace</small></div><div><b>02</b><small>Sound & Color</small></div><div><b>03</b><small>Motion & Polish</small></div></div>
+        <div class="actions">
+          <a class="btn primary" href="#work">View My Work <span>↗</span></a>
+          <a class="btn ghost" data-wa>Let's Work Together</a>
+        </div>
+        <div class="miniStats">
+          <div><b>01</b><small>Story &amp; Pace</small></div>
+          <div><b>02</b><small>Sound &amp; Color</small></div>
+          <div><b>03</b><small>Motion &amp; Polish</small></div>
+        </div>
       </div>
+
       <div class="heroVisual reveal">
         <div class="orb orb1"></div><div class="orb orb2"></div>
-        <div class="portrait"><img src="assets/profile.png" alt="Lakshan Pradeep, video editor"><div class="shade"></div><div class="portraitMeta"><b>LAKSHAN PRADEEP</b><small>VIDEO EDITOR · CREATIVE</small></div></div>
+        <div class="portrait">
+          <img src="assets/profile.png" alt="Lakshan Pradeep, video editor">
+          <div class="shade"></div>
+          <div class="portraitMeta"><b>LAKSHAN PRADEEP</b><small>VIDEO EDITOR · CREATIVE</small></div>
+        </div>
         <div class="floatCard editCard"><span>✦</span><div><b>Editing</b><small>Story · Pace · Impact</small></div></div>
         <div class="floatCard availableCard"><span class="greenDot"></span><div><b>Available</b><small>For new projects</small></div></div>
       </div>
@@ -51,12 +70,27 @@
     </section>
 
     <section id="work" class="section">
-      <div class="sectionHead reveal"><div><p class="eyebrow">01 / SELECTED WORK</p><h2>Good edits get attention.<br><span>Great edits hold it.</span></h2></div><p>Your strongest work will live here. The project areas are intentionally empty until you add your finished videos.</p></div>
+      <div class="sectionHead reveal">
+        <div><p class="eyebrow">01 / SELECTED WORK</p><h2>Good edits get attention.<br><span>Great edits hold it.</span></h2></div>
+        <p>Your finished videos will live here. These project cards stay empty until you upload your own work.</p>
+      </div>
       <div class="workGrid">
-        <article class="project projectLarge reveal"><div class="projectMedia emptyProject"><video controls preload="metadata"><source src="assets/project-01.mp4" type="video/mp4"></video><div class="mediaFallback"><span>01</span><b>LONG-FORM</b><small>Add your video here</small></div></div><div class="projectInfo"><div><em>YouTube · Story Edit</em><h3>Long-form storytelling</h3><p>Structure, pacing, music, sound design, captions and cinematic finishing.</p></div><span class="arrow">↗</span></div></article>
-        <article class="project reveal"><div class="projectMedia emptyProject"><video controls preload="metadata"><source src="assets/project-02.mp4" type="video/mp4"></video><div class="mediaFallback"><span>02</span><b>SHORT FORM</b><small>Add your video here</small></div></div><div class="projectInfo"><div><em>Reels · Shorts</em><h3>High-retention edits</h3><p>Hooks, fast cuts, captions and social-first pacing.</p></div><span class="arrow">↗</span></div></article>
-        <article class="project reveal"><div class="projectMedia emptyProject"><video controls preload="metadata"><source src="assets/project-03.mp4" type="video/mp4"></video><div class="mediaFallback"><span>03</span><b>BRAND</b><small>Add your video here</small></div></div><div class="projectInfo"><div><em>Commercial · Promo</em><h3>Brand content</h3><p>Clean visuals, strong messaging and polished motion.</p></div><span class="arrow">↗</span></div></article>
-        <article class="project reveal"><div class="projectMedia emptyProject"><video controls preload="metadata"><source src="assets/project-04.mp4" type="video/mp4"></video><div class="mediaFallback"><span>04</span><b>CINEMATIC</b><small>Add your video here</small></div></div><div class="projectInfo"><div><em>Visual Storytelling</em><h3>Cinematic atmosphere</h3><p>Color, rhythm, sound and visual emotion.</p></div><span class="arrow">↗</span></div></article>
+        <article class="project projectLarge reveal">
+          <div class="projectMedia emptyProject"><video controls preload="metadata"><source src="assets/project-01.mp4" type="video/mp4"></video><div class="mediaFallback"><span>01</span><b>LONG-FORM</b><small>Upload your video as project-01.mp4</small></div></div>
+          <div class="projectInfo"><div><em>YouTube · Story Edit</em><h3>Long-form storytelling</h3><p>Structure, pacing, music, sound design, captions and cinematic finishing.</p></div><span class="arrow">↗</span></div>
+        </article>
+        <article class="project reveal">
+          <div class="projectMedia emptyProject"><video controls preload="metadata"><source src="assets/project-02.mp4" type="video/mp4"></video><div class="mediaFallback"><span>02</span><b>SHORT FORM</b><small>Upload your video as project-02.mp4</small></div></div>
+          <div class="projectInfo"><div><em>Reels · Shorts</em><h3>High-retention edits</h3><p>Hooks, fast cuts, captions and social-first pacing.</p></div><span class="arrow">↗</span></div>
+        </article>
+        <article class="project reveal">
+          <div class="projectMedia emptyProject"><video controls preload="metadata"><source src="assets/project-03.mp4" type="video/mp4"></video><div class="mediaFallback"><span>03</span><b>BRAND</b><small>Upload your video as project-03.mp4</small></div></div>
+          <div class="projectInfo"><div><em>Commercial · Promo</em><h3>Brand content</h3><p>Clean visuals, strong messaging and polished motion.</p></div><span class="arrow">↗</span></div>
+        </article>
+        <article class="project reveal">
+          <div class="projectMedia emptyProject"><video controls preload="metadata"><source src="assets/project-04.mp4" type="video/mp4"></video><div class="mediaFallback"><span>04</span><b>CINEMATIC</b><small>Upload your video as project-04.mp4</small></div></div>
+          <div class="projectInfo"><div><em>Visual Storytelling</em><h3>Cinematic atmosphere</h3><p>Color, rhythm, sound and visual emotion.</p></div><span class="arrow">↗</span></div>
+        </article>
       </div>
     </section>
 
@@ -64,35 +98,51 @@
       <div class="sectionHead reveal"><div><p class="eyebrow">02 / SERVICES</p><h2>From raw footage<br><span>to final cut.</span></h2></div><p>One editor for the creative details that make a video feel finished.</p></div>
       <div class="services">
         <div class="service reveal"><b>01</b><h3>YouTube Editing</h3><p>Long-form storytelling, pacing, B-roll, sound, captions and graphics.</p><span>→</span></div>
-        <div class="service reveal"><b>02</b><h3>Reels & Shorts</h3><p>Fast hooks and mobile-first edits designed to keep viewers watching.</p><span>→</span></div>
-        <div class="service reveal"><b>03</b><h3>Color & Sound</h3><p>Color correction, grading, audio cleanup, music and SFX.</p><span>→</span></div>
+        <div class="service reveal"><b>02</b><h3>Reels &amp; Shorts</h3><p>Fast hooks and mobile-first edits designed to keep viewers watching.</p><span>→</span></div>
+        <div class="service reveal"><b>03</b><h3>Color &amp; Sound</h3><p>Color correction, grading, audio cleanup, music and SFX.</p><span>→</span></div>
         <div class="service reveal"><b>04</b><h3>Motion Graphics</h3><p>Titles, animated text, callouts and clean modern effects.</p><span>→</span></div>
         <div class="service reveal"><b>05</b><h3>Social Ads</h3><p>Short promotional edits built around a clear message and strong hook.</p><span>→</span></div>
         <div class="service reveal"><b>06</b><h3>Captions</h3><p>Readable, stylish subtitles timed for modern mobile audiences.</p><span>→</span></div>
       </div>
     </section>
 
+    <section class="section expertiseSection">
+      <div class="sectionHead reveal">
+        <div><p class="eyebrow">03 / EXPERTISE</p><h2>What I edit.<br><span>What I use.</span></h2></div>
+        <p>A clear snapshot of the content categories I work on and the professional tools I use to finish them.</p>
+      </div>
+      <div class="expertiseGrid">
+        <div class="expertiseCard reveal"><span>01</span><h3>YouTube</h3><p>Long-form videos, storytelling, pacing, B-roll, retention and polished delivery.</p></div>
+        <div class="expertiseCard reveal"><span>02</span><h3>Reels &amp; Shorts</h3><p>Fast hooks, captions, punchy cuts, motion and social-first vertical edits.</p></div>
+        <div class="expertiseCard reveal"><span>03</span><h3>Brand &amp; Commercial</h3><p>Promos, ads, product stories and clean visual communication.</p></div>
+        <div class="expertiseCard reveal"><span>04</span><h3>Cinematic Editing</h3><p>Color, sound, rhythm, transitions and visual storytelling with a premium finish.</p></div>
+      </div>
+      <div class="toolCloud reveal">
+        <span>Adobe Premiere Pro</span><span>After Effects</span><span>Photoshop</span><span>Audition</span><span>DaVinci Resolve</span><span>AI Tools</span>
+      </div>
+    </section>
+
     <section class="section processSection">
-      <div class="sectionHead reveal"><div><p class="eyebrow">03 / PROCESS</p><h2>Simple for you.<br><span>Serious about the edit.</span></h2></div></div>
+      <div class="sectionHead reveal"><div><p class="eyebrow">04 / PROCESS</p><h2>Simple for you.<br><span>Serious about the edit.</span></h2></div></div>
       <div class="process"><div class="reveal"><b>01</b><h3>Send the brief</h3><p>Footage, references, format and deadline.</p></div><div class="reveal"><b>02</b><h3>I edit</h3><p>Story, pacing, visuals, sound and captions.</p></div><div class="reveal"><b>03</b><h3>You review</h3><p>Feedback and revisions keep the direction right.</p></div><div class="reveal"><b>04</b><h3>Final delivery</h3><p>Polished files ready for your platform.</p></div></div>
     </section>
 
     <section id="about" class="section about">
       <div class="aboutImg reveal"><img src="assets/profile.png" alt="Lakshan Pradeep"></div>
-      <div class="reveal"><p class="eyebrow">04 / ABOUT ME</p><h2>Behind every good edit is a <span>good story.</span></h2><p>I’m Lakshan Pradeep, a video editor focused on turning raw footage into content that feels modern, intentional and easy to watch.</p><p>I care about the details viewers feel even when they don't notice them: pacing, music, sound, color, typography and clean visual rhythm.</p><div class="tools"><span>Premiere Pro</span><span>After Effects</span><span>Photoshop</span><span>Audition</span><span>DaVinci Resolve</span><span>AI Tools</span></div></div>
+      <div class="reveal"><p class="eyebrow">05 / ABOUT ME</p><h2>Behind every good edit is a <span>good story.</span></h2><p>I’m Lakshan Pradeep, a video editor focused on turning raw footage into content that feels modern, intentional and easy to watch.</p><p>I care about the details viewers feel even when they don't notice them: pacing, music, sound, color, typography and clean visual rhythm.</p><div class="tools"><span>Premiere Pro</span><span>After Effects</span><span>Photoshop</span><span>Audition</span><span>DaVinci Resolve</span><span>AI Tools</span></div></div>
     </section>
 
     <section class="section availabilityWrap"><div class="availability reveal"><div class="availabilityTop"><span class="greenDot"></span> CURRENTLY AVAILABLE</div><h2>Have footage?<br>Let's make it <span>worth watching.</span></h2><p>Send me your project idea, video type and deadline. I’ll get back to you with the next step.</p><a class="btn primary" data-wa>Start a Project <span>↗</span></a></div></section>
 
     <section id="contact" class="section contact">
-      <div class="reveal"><p class="eyebrow">05 / CONTACT</p><h2>Let's make something<br><span>worth watching.</span></h2><p>Ready to discuss your next edit? Choose any channel below.</p><div class="contactNote">Usually the fastest way to reach me is WhatsApp.</div></div>
+      <div class="reveal"><p class="eyebrow">06 / CONTACT</p><h2>Let's make something<br><span>worth watching.</span></h2><p>Ready to discuss your next edit? Choose any channel below.</p><div class="contactNote">Usually the fastest way to reach me is WhatsApp.</div></div>
       <div class="links reveal">
-        <a data-wa><span class="socialLabel"><i class="socialIcon whatsappIcon">W</i>WhatsApp</span><b>Chat with me ↗</b></a>
-        <a data-email><span class="socialLabel"><i class="socialIcon emailIcon">✉</i>Email</span><b id="emailText">your@email.com ↗</b></a>
-        <a data-social="instagram"><span class="socialLabel"><i class="socialIcon">◎</i>Instagram</span><b>View profile ↗</b></a>
-        <a data-social="youtube"><span class="socialLabel"><i class="socialIcon">▶</i>YouTube</span><b>Watch videos ↗</b></a>
-        <a data-social="facebook"><span class="socialLabel"><i class="socialIcon">f</i>Facebook</span><b>View profile ↗</b></a>
-        <a data-social="tiktok"><span class="socialLabel"><i class="socialIcon">♪</i>TikTok</span><b>View profile ↗</b></a>
+        <a data-wa><span class="socialLabel"><i class="socialIcon whatsappIcon" aria-hidden="true">⌕</i>WhatsApp</span><b>Chat with me ↗</b></a>
+        <a data-email><span class="socialLabel"><i class="socialIcon emailIcon" aria-hidden="true">✉</i>Email</span><b id="emailText">your@email.com ↗</b></a>
+        <a data-social="instagram"><span class="socialLabel"><i class="socialIcon" aria-hidden="true">◎</i>Instagram</span><b>View profile ↗</b></a>
+        <a data-social="youtube"><span class="socialLabel"><i class="socialIcon" aria-hidden="true">▶</i>YouTube</span><b>Watch videos ↗</b></a>
+        <a data-social="facebook"><span class="socialLabel"><i class="socialIcon" aria-hidden="true">f</i>Facebook</span><b>View profile ↗</b></a>
+        <a data-social="tiktok"><span class="socialLabel"><i class="socialIcon" aria-hidden="true">♪</i>TikTok</span><b>View profile ↗</b></a>
       </div>
     </section>
   </main>
