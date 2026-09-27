@@ -11,6 +11,22 @@ const CONFIG={
   tiktok:'https://tiktok.com/@yourusername'
 };
 
+/* Small visual upgrades are kept here so the portfolio stays easy to edit. */
+const dynamicStyle=document.createElement('style');
+dynamicStyle.textContent=`
+  .heroTitle .typingLine:first-child{color:#fff!important}
+  .heroTitle .typingLine.accent{color:#9b63ff!important}
+  .heroTitle .typingLine:after{background:#9b63ff}
+  .nav nav a{cursor:pointer}
+  .nav nav a:hover{transform:translateY(-1px)}
+  .aboutImg img{transform:scale(.96);transform-origin:center top}
+  .socialIcon{font-size:9px!important;opacity:.9}
+  .projectMedia.emptyProject{transition:transform .45s ease,background .45s ease}
+  .project:hover .projectMedia.emptyProject{transform:scale(1.01)}
+  .service,.expertiseCard,.project,.process>div,.toolCloud span,.tools span{will-change:transform}
+`;
+document.head.appendChild(dynamicStyle);
+
 const msg=encodeURIComponent("Hi Lakshan, I found your video editing portfolio and I'd like to discuss a project.");
 
 document.querySelectorAll('[data-wa]').forEach(a=>{
@@ -31,35 +47,52 @@ if(year)year.textContent=new Date().getFullYear();
 
 /* Page loader: keeps the quick portfolio reveal on every fresh visit. */
 window.addEventListener('load',()=>{
-  setTimeout(()=>document.querySelector('.pageLoader')?.classList.add('done'),650);
+  setTimeout(()=>document.querySelector('.pageLoader')?.classList.add('done'),850);
   startTyping();
 });
 
-/* Type the large hero headline instead of showing it as static text. */
+/* First line types once in white. Second line types + deletes continuously in purple. */
 function startTyping(){
   const title=document.querySelector('.heroTitle');
-  const lines=[...document.querySelectorAll('.typingLine')];
-  if(!title||!lines.length)return;
-  let lineIndex=0;
-  let charIndex=0;
-  const speed=65;
-  const typeNext=()=>{
-    const line=lines[lineIndex];
-    const text=line.dataset.typing||'';
-    if(charIndex<text.length){
-      line.textContent=text.slice(0,charIndex+1);
-      charIndex++;
-      setTimeout(typeNext,speed);
-    }else if(lineIndex<lines.length-1){
-      lineIndex++;
-      charIndex=0;
-      setTimeout(typeNext,180);
+  const first=document.querySelector('.typingLine:first-child');
+  const second=document.querySelector('.typingLine.accent');
+  if(!title||!first||!second)return;
+
+  const firstText=first.dataset.typing||'I make videos';
+  const secondText=second.dataset.typing||'worth watching.';
+  const typeSpeed=62;
+  const deleteSpeed=42;
+
+  first.textContent='';
+  second.textContent='';
+  title.classList.remove('typingDone');
+
+  let i=0;
+  const typeFirst=()=>{
+    if(i<firstText.length){
+      first.textContent=firstText.slice(0,i+1);
+      i++;
+      setTimeout(typeFirst,typeSpeed);
+    }else setTimeout(typeSecond,220);
+  };
+
+  let j=0;
+  let deleting=false;
+  const typeSecond=()=>{
+    if(!deleting){
+      second.textContent=secondText.slice(0,j+1);
+      j++;
+      if(j<secondText.length)setTimeout(typeSecond,typeSpeed);
+      else setTimeout(()=>{deleting=true;typeSecond()},1100);
     }else{
-      setTimeout(()=>title.classList.add('typingDone'),500);
+      second.textContent=secondText.slice(0,j-1);
+      j--;
+      if(j>0)setTimeout(typeSecond,deleteSpeed);
+      else{deleting=false;setTimeout(typeSecond,300)}
     }
   };
-  lines.forEach(line=>line.textContent='');
-  setTimeout(typeNext,350);
+
+  setTimeout(typeFirst,350);
 }
 
 const menu=document.querySelector('.menu'),nav=document.querySelector('.nav nav');
@@ -80,6 +113,11 @@ document.querySelectorAll('.reveal').forEach((e,i)=>{
   io.observe(e);
 });
 
+/* Extra staggered entrance for cards and process items. */
+document.querySelectorAll('.services .service,.expertiseGrid .expertiseCard,.process>div,.workGrid .project').forEach((el,i)=>{
+  el.style.transitionDelay=Math.min(i*70,420)+'ms';
+});
+
 /* Soft cursor glow. */
 const glow=document.querySelector('.cursorGlow');
 window.addEventListener('pointermove',e=>{
@@ -97,3 +135,11 @@ const activeObserver=new IntersectionObserver(entries=>{
   });
 },{rootMargin:'-35% 0px -55% 0px',threshold:0});
 sections.forEach(s=>activeObserver.observe(s));
+
+/* Make the clicked navigation item immediately active before smooth scrolling finishes. */
+navLinks.forEach(link=>{
+  link.addEventListener('click',()=>{
+    navLinks.forEach(item=>item.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
