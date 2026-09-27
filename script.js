@@ -26,6 +26,18 @@ dynamicStyle.textContent=`
   .projectMedia.emptyProject{transition:transform .45s ease,background .45s ease}
   .project:hover .projectMedia.emptyProject{transform:scale(1.01)}
   .service,.expertiseCard,.project,.process>div,.toolCloud span,.tools span{will-change:transform}
+
+  /* IMPORTANT: keep the hero image/cards locked in place while the heading types. */
+  .hero{align-items:start!important}
+  .hero h1{height:1.88em!important;min-height:1.88em!important;overflow:visible!important}
+  .heroVisual{align-self:start!important;height:650px!important;min-height:650px!important}
+  .heroVisual>*{will-change:transform}
+  @media(max-width:850px){
+    .heroVisual{height:540px!important;min-height:540px!important}
+  }
+  @media(max-width:560px){
+    .heroVisual{height:500px!important;min-height:500px!important}
+  }
 `;
 document.head.appendChild(dynamicStyle);
 
