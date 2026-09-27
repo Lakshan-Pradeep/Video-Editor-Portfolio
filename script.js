@@ -7,13 +7,19 @@ const emailText=document.getElementById('emailText');if(emailText)emailText.text
 document.querySelectorAll('[data-social]').forEach(a=>a.href=CONFIG[a.dataset.social]||'#');
 document.getElementById('year').textContent=new Date().getFullYear();
 
+window.addEventListener('load',()=>{setTimeout(()=>document.querySelector('.pageLoader')?.classList.add('done'),650)});
+
 const menu=document.querySelector('.menu'),nav=document.querySelector('.nav nav');
 if(menu&&nav){menu.addEventListener('click',()=>nav.classList.toggle('open'));nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')))}
 
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
-
-document.querySelectorAll('video').forEach(v=>{v.addEventListener('loadeddata',()=>{const fallback=v.parentElement.querySelector('.mediaFallback');if(fallback)fallback.style.display='none'});v.addEventListener('error',()=>{v.style.display='none'})});
+document.querySelectorAll('.reveal').forEach((e,i)=>{e.style.transitionDelay=Math.min(i*45,300)+'ms';io.observe(e)});
 
 const glow=document.querySelector('.cursorGlow');
 window.addEventListener('pointermove',e=>{if(glow){glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'}});
+
+// Smooth active navigation state while scrolling.
+const sections=[...document.querySelectorAll('main section[id]')];
+const navLinks=[...document.querySelectorAll('.nav nav a')];
+const activeObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===`#${entry.target.id}`))}}),{rootMargin:'-35% 0px -55% 0px',threshold:0});
+sections.forEach(s=>activeObserver.observe(s));
