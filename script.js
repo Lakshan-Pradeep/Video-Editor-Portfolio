@@ -19,7 +19,9 @@ dynamicStyle.textContent=`
   .heroTitle .typingLine:after{background:#9b63ff}
   .nav nav a{cursor:pointer}
   .nav nav a:hover{transform:translateY(-1px)}
-  .aboutImg img{transform:scale(.96);transform-origin:center top}
+  /* Show the complete About portrait — do not crop the hair/head. */
+  .aboutImg{max-height:none!important;aspect-ratio:auto!important}
+  .aboutImg img{width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center top!important;transform:none!important}
   .socialIcon{font-size:9px!important;opacity:.9}
   .projectMedia.emptyProject{transition:transform .45s ease,background .45s ease}
   .project:hover .projectMedia.emptyProject{transform:scale(1.01)}
@@ -45,7 +47,7 @@ document.querySelectorAll('[data-social]').forEach(a=>{
 const year=document.getElementById('year');
 if(year)year.textContent=new Date().getFullYear();
 
-/* Page loader: keeps the quick portfolio reveal on every fresh visit. */
+/* Page loader: quick branded reveal on every fresh visit. */
 window.addEventListener('load',()=>{
   setTimeout(()=>document.querySelector('.pageLoader')?.classList.add('done'),850);
   startTyping();
@@ -101,7 +103,7 @@ if(menu&&nav){
   nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
 }
 
-/* Reveal sections as they enter the viewport. */
+/* Reveal every major section/card as it enters the viewport. */
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){
     e.target.classList.add('visible');
@@ -113,7 +115,6 @@ document.querySelectorAll('.reveal').forEach((e,i)=>{
   io.observe(e);
 });
 
-/* Extra staggered entrance for cards and process items. */
 document.querySelectorAll('.services .service,.expertiseGrid .expertiseCard,.process>div,.workGrid .project').forEach((el,i)=>{
   el.style.transitionDelay=Math.min(i*70,420)+'ms';
 });
