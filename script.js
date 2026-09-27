@@ -3,7 +3,7 @@
    Change ONLY these values when needed.
    ============================= */
 const CONFIG={
-  whatsapp:'947XXXXXXXX',
+  whatsapp:'94755571232',
   email:'your@email.com',
   instagram:'https://instagram.com/yourusername',
   youtube:'https://youtube.com/@yourusername',
