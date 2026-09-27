@@ -11,7 +11,6 @@ const CONFIG={
   tiktok:'https://tiktok.com/@yourusername'
 };
 
-/* Small visual upgrades are kept here so the portfolio stays easy to edit. */
 const dynamicStyle=document.createElement('style');
 dynamicStyle.textContent=`
   .heroTitle .typingLine:first-child{color:#fff!important}
@@ -19,7 +18,7 @@ dynamicStyle.textContent=`
   .heroTitle .typingLine:after{background:#9b63ff}
   .nav nav a{cursor:pointer}
   .nav nav a:hover{transform:translateY(-1px)}
-  /* Show the complete About portrait — do not crop the hair/head. */
+
   .aboutImg{max-height:none!important;aspect-ratio:auto!important}
   .aboutImg img{width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center top!important;transform:none!important}
   .socialIcon{font-size:9px!important;opacity:.9}
@@ -27,16 +26,42 @@ dynamicStyle.textContent=`
   .project:hover .projectMedia.emptyProject{transform:scale(1.01)}
   .service,.expertiseCard,.project,.process>div,.toolCloud span,.tools span{will-change:transform}
 
-  /* IMPORTANT: keep the hero image/cards locked in place while the heading types. */
-  .hero{align-items:start!important}
-  .hero h1{height:1.88em!important;min-height:1.88em!important;overflow:visible!important}
-  .heroVisual{align-self:start!important;height:650px!important;min-height:650px!important}
-  .heroVisual>*{will-change:transform}
+  /* HERO LOCK: typing text must NEVER resize/reflow the image column. */
+  .hero{
+    align-items:start!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,.9fr)!important;
+  }
+  .heroCopy{min-width:0!important;width:100%!important}
+  .heroTitle{
+    height:1.88em!important;
+    min-height:1.88em!important;
+    overflow:visible!important;
+    max-width:100%!important;
+  }
+  .typingLine{
+    display:inline-block!important;
+    white-space:nowrap!important;
+    max-width:100%!important;
+  }
+  .heroVisual{
+    align-self:start!important;
+    height:650px!important;
+    min-height:650px!important;
+    min-width:0!important;
+  }
+  .heroVisual .portrait{flex:none!important}
+
+  /* Keep the two hero lines inside their own column at all desktop widths. */
+  @media(min-width:851px){
+    .heroTitle{font-size:clamp(50px,5.45vw,82px)!important}
+  }
   @media(max-width:850px){
+    .hero{grid-template-columns:minmax(0,1fr)!important}
     .heroVisual{height:540px!important;min-height:540px!important}
   }
   @media(max-width:560px){
     .heroVisual{height:500px!important;min-height:500px!important}
+    .heroTitle{font-size:clamp(42px,13vw,60px)!important}
   }
 `;
 document.head.appendChild(dynamicStyle);
@@ -59,7 +84,6 @@ document.querySelectorAll('[data-social]').forEach(a=>{
 const year=document.getElementById('year');
 if(year)year.textContent=new Date().getFullYear();
 
-/* Page loader: quick branded reveal on every fresh visit. */
 window.addEventListener('load',()=>{
   setTimeout(()=>document.querySelector('.pageLoader')?.classList.add('done'),850);
   startTyping();
@@ -115,7 +139,6 @@ if(menu&&nav){
   nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
 }
 
-/* Reveal every major section/card as it enters the viewport. */
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){
     e.target.classList.add('visible');
@@ -131,13 +154,11 @@ document.querySelectorAll('.services .service,.expertiseGrid .expertiseCard,.pro
   el.style.transitionDelay=Math.min(i*70,420)+'ms';
 });
 
-/* Soft cursor glow. */
 const glow=document.querySelector('.cursorGlow');
 window.addEventListener('pointermove',e=>{
   if(glow){glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';}
 });
 
-/* Active navigation: the current section is highlighted while scrolling. */
 const sections=[...document.querySelectorAll('main section[id]')];
 const navLinks=[...document.querySelectorAll('.nav nav a')];
 const activeObserver=new IntersectionObserver(entries=>{
@@ -149,7 +170,6 @@ const activeObserver=new IntersectionObserver(entries=>{
 },{rootMargin:'-35% 0px -55% 0px',threshold:0});
 sections.forEach(s=>activeObserver.observe(s));
 
-/* Make the clicked navigation item immediately active before smooth scrolling finishes. */
 navLinks.forEach(link=>{
   link.addEventListener('click',()=>{
     navLinks.forEach(item=>item.classList.remove('active'));
